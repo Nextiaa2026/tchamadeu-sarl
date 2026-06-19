@@ -25,7 +25,7 @@ export const siteConfig = {
     { label: "Accueil", href: "/" },
     { label: "À propos", href: "/#about" },
     { label: "Services", href: "/services" },
-    { label: "Équipe", href: "/#team" },
+    { label: "Équipe", href: "/team" },
     { label: "Réalisations", href: "/#realisations" },
   ],
   theme: {
@@ -174,9 +174,75 @@ export const siteConfig = {
     goldGrey: "/logo/logo-gold-grey.png",
     white: "/logo/logo-white.png",
   },
+  team: [
+    {
+      slug: "axel-tchamadeu",
+      name: "Axel Tchamadeu",
+      role: "Directeur Général",
+      description:
+        "Fondateur et visionnaire de TCHAMADEU SARL, Axel pilote la stratégie globale et garantit l'excellence de chaque projet.",
+      longDescription:
+        "Avec plus de 15 ans d'expérience dans le BTP et l'immobilier au Cameroun, Axel Tchamadeu a fondé TCHAMADEU SARL avec une conviction : offrir des ouvrages solides, de la fondation à la finition. Il supervise l'ensemble des opérations et incarne les valeurs de rigueur et d'intégrité de l'entreprise.",
+      image: "/images/team/member-1.jpg",
+      alt: "Axel Tchamadeu — Directeur Général, TCHAMADEU SARL",
+    },
+    {
+      slug: "marie-nguemeleu",
+      name: "Marie Nguemeleu",
+      role: "Directrice Immobilier",
+      description:
+        "Experte en gestion immobilière et transactions foncières, Marie accompagne les clients dans leurs projets d'acquisition et de location.",
+      longDescription:
+        "Marie Nguemeleu dirige le pôle immobilier de TCHAMADEU SARL. Spécialisée en évaluation de biens, vente de terrains et gestion locative, elle met son expertise du marché camerounais au service des particuliers et des investisseurs.",
+      image: "/images/team/member-2.jpg",
+      alt: "Marie Nguemeleu — Directrice Immobilier, TCHAMADEU SARL",
+    },
+    {
+      slug: "jean-paul-mbarga",
+      name: "Jean-Paul Mbarga",
+      role: "Chef de chantier BTP",
+      description:
+        "Responsable des opérations terrain, Jean-Paul assure le suivi rigoureux des chantiers et le respect des normes de construction.",
+      longDescription:
+        "Jean-Paul Mbarga coordonne les équipes sur le terrain pour les projets de génie civil, voiries et bâtiments. Son expertise technique et son sens du détail garantissent la qualité d'exécution sur chaque chantier confié à TCHAMADEU SARL.",
+      image: "/images/team/member-3.jpg",
+      alt: "Jean-Paul Mbarga — Chef de chantier BTP, TCHAMADEU SARL",
+    },
+    {
+      slug: "sophie-etoundi",
+      name: "Sophie Etoundi",
+      role: "Responsable Commerciale",
+      description:
+        "Sophie développe les relations clients et assure le suivi commercial de bout en bout pour chaque projet.",
+      longDescription:
+        "Au contact direct des clients, Sophie Etoundi structure les offres commerciales et accompagne les porteurs de projets depuis la première prise de contact jusqu'à la livraison. Elle est le lien entre les ambitions des clients et l'expertise de nos équipes.",
+      image: "/images/team/member-4.jpg",
+      alt: "Sophie Etoundi — Responsable Commerciale, TCHAMADEU SARL",
+    },
+    {
+      slug: "emmanuel-fotso",
+      name: "Emmanuel Fotso",
+      role: "Ingénieur Structure",
+      description:
+        "Spécialiste en calcul de structures et conformité technique, Emmanuel valide la solidité de chaque ouvrage.",
+      longDescription:
+        "Ingénieur diplômé, Emmanuel Fotso supervise les études structurelles et veille à la conformité des projets aux normes en vigueur. Son expertise garantit la durabilité et la sécurité de tous les bâtiments réalisés par TCHAMADEU SARL.",
+      image: "/images/team/member-5.jpg",
+      alt: "Emmanuel Fotso — Ingénieur Structure, TCHAMADEU SARL",
+    },
+  ],
 } as const
 
 export type Service = (typeof siteConfig.services)[number]
+export type TeamMember = (typeof siteConfig.team)[number]
+
+export function getTeamMemberBySlug(slug: string): TeamMember | undefined {
+  return siteConfig.team.find((m) => m.slug === slug)
+}
+
+export function getAllTeamMemberSlugs(): string[] {
+  return siteConfig.team.map((m) => m.slug)
+}
 
 export function getServiceBySlug(slug: string): Service | undefined {
   return siteConfig.services.find((s) => s.slug === slug)

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { getAllServiceSlugs, siteConfig } from "@/lib/site-config"
+import { getAllServiceSlugs, getAllTeamMemberSlugs, siteConfig } from "@/lib/site-config"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -9,6 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }))
+
+  const teamPages = getAllTeamMemberSlugs().map((slug) => ({
+    url: `${siteConfig.url}/team/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }))
 
   return [
@@ -24,6 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${siteConfig.url}/team`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     ...servicePages,
+    ...teamPages,
   ]
 }

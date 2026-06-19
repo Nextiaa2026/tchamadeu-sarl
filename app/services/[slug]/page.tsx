@@ -6,7 +6,6 @@ import { ArrowRightIcon, CheckIcon } from "@phosphor-icons/react/dist/ssr"
 import { Reveal } from "@/components/ui/Reveal"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { ServiceCard } from "@/components/ui/ServiceCard"
-import { TeamSection } from "@/components/sections/TeamSection"
 import {
   getAllServiceSlugs,
   getServiceBySlug,
@@ -151,8 +150,6 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      <TeamSection />
     </>
   )
 }

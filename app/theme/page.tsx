@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Reveal } from "@/components/ui/Reveal"
 import { SectionHeading } from "@/components/ui/SectionHeading"
-import { TeamSection } from "@/components/sections/TeamSection"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
@@ -159,7 +158,6 @@ export default function ThemePage() {
           </div>
         </section>
       </div>
-      <TeamSection />
     </>
   )
 }

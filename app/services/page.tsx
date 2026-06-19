@@ -4,7 +4,6 @@ import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr"
 import { Reveal } from "@/components/ui/Reveal"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { ServiceCard } from "@/components/ui/ServiceCard"
-import { TeamSection } from "@/components/sections/TeamSection"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
@@ -61,7 +60,6 @@ export default function ServicesPage() {
           </Reveal>
         </div>
       </section>
-      <TeamSection />
     </>
   )
 }
